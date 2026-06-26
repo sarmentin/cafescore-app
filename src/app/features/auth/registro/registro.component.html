@@ -1,1 +1,61 @@
-<p>registro works!</p>
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <mat-card-header>
+      <mat-card-title>☕ Caféscore</mat-card-title>
+      <mat-card-subtitle>Crie sua conta</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="submeter()">
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Nome</mat-label>
+          <input matInput formControlName="nome" placeholder="Seu nome">
+          @if (form.get('nome')?.hasError('required')) {
+            <mat-error>Nome é obrigatório</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Email</mat-label>
+          <input matInput formControlName="email" type="email" placeholder="seu@email.com">
+          @if (form.get('email')?.hasError('required')) {
+            <mat-error>Email é obrigatório</mat-error>
+          }
+          @if (form.get('email')?.hasError('email')) {
+            <mat-error>Email inválido</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>Senha</mat-label>
+          <input matInput formControlName="senha" type="password">
+          @if (form.get('senha')?.hasError('required')) {
+            <mat-error>Senha é obrigatória</mat-error>
+          }
+          @if (form.get('senha')?.hasError('minlength')) {
+            <mat-error>Senha deve ter no mínimo 6 caracteres</mat-error>
+          }
+        </mat-form-field>
+
+        @if (erro) {
+          <p class="erro">{{ erro }}</p>
+        }
+
+        <button mat-raised-button color="primary" type="submit"
+          class="full-width" [disabled]="carregando">
+          @if (carregando) {
+            <mat-spinner diameter="20"></mat-spinner>
+          } @else {
+            Cadastrar
+          }
+        </button>
+
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <p>Já tem conta? <a routerLink="/auth/login">Entre aqui</a></p>
+    </mat-card-actions>
+  </mat-card>
+</div>

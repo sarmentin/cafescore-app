@@ -1,0 +1,80 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+
+  h3 {
+    margin: 24px 0 8px;
+    font-size: 18px;
+  }
+}
+
+.centro {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+.clinica-header {
+  margin-bottom: 24px;
+}
+
+.endereco {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  font-size: 14px;
+  margin: 8px 0;
+
+  mat-icon {
+    font-size: 16px;
+    height: 16px;
+    width: 16px;
+  }
+}
+
+.estrelas {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-top: 8px;
+}
+
+.estrela-cheia {
+  color: #FFC107;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.estrela-vazia {
+  color: #ccc;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.nota-texto {
+  font-size: 13px;
+  color: #666;
+  margin-left: 4px;
+}
+
+.avaliacao-card {
+  margin-top: 16px;
+}
+
+.sem-avaliacoes {
+  color: #666;
+  text-align: center;
+  padding: 32px;
+}
+
+.erro {
+  color: #f44336;
+}

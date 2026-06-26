@@ -1,0 +1,59 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.centro {
+  display: flex;
+  justify-content: center;
+  padding: 48px;
+}
+
+.vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 48px;
+  color: #666;
+
+  mat-icon {
+    font-size: 48px;
+    height: 48px;
+    width: 48px;
+    margin-bottom: 16px;
+  }
+
+  p {
+    margin-bottom: 16px;
+  }
+}
+
+.avaliacao-card {
+  margin-bottom: 16px;
+}
+
+.estrelas {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: 8px;
+}
+
+.estrela-cheia {
+  color: #FFC107;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.estrela-vazia {
+  color: #ccc;
+  font-size: 20px;
+  height: 20px;
+  width: 20px;
+}
+
+.erro {
+  color: #f44336;
+}
