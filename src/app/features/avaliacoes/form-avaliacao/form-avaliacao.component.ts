@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { AvaliacaoService } from '../../../core/services/avaliacao.service';
 
 @Component({
@@ -24,7 +25,8 @@ import { AvaliacaoService } from '../../../core/services/avaliacao.service';
     MatButtonModule,
     MatProgressSpinnerModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatSnackBarModule
   ],
   templateUrl: './form-avaliacao.component.html',
   styleUrl: './form-avaliacao.component.scss'
@@ -40,7 +42,8 @@ export class FormAvaliacaoComponent implements OnInit {
     private fb: FormBuilder,
     private avaliacaoService: AvaliacaoService,
     private route: ActivatedRoute,
-    public router: Router
+    public router: Router,
+    private snackBar: MatSnackBar
   ) {
     this.form = this.fb.group({
       nota: [0, [Validators.required, Validators.min(1), Validators.max(5)]],
@@ -68,7 +71,13 @@ export class FormAvaliacaoComponent implements OnInit {
       nota: this.form.value.nota,
       comentario: this.form.value.comentario
     }).subscribe({
-      next: () => this.router.navigate(['/clinicas', this.clinicaId]),
+      next: () => {
+        this.snackBar.open('Avaliação salva com sucesso! ☕', 'Fechar', {
+          duration: 3000,
+          panelClass: ['snack-sucesso']
+        });
+        this.router.navigate(['/clinicas', this.clinicaId]);
+      },
       error: (err) => {
         this.erro = err.error?.mensagem || 'Erro ao salvar avaliação';
         this.carregando = false;
