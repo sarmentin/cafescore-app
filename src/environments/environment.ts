@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://sua-api-em-producao.com/api'
+  apiUrl: 'https://cafescore-api-cqfjg6ebesaxdvhp.centralus-01.azurewebsites.net/api'
 };
